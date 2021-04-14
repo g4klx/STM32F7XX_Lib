@@ -351,11 +351,10 @@ typedef struct
   * @{
   */
 
-#define  I2C_No_StartStop                 ((uint32_t)0x00000000)
-#define  I2C_Generate_Stop                I2C_CR2_STOP
-#define  I2C_Generate_Start_Read          (uint32_t)(I2C_CR2_START | I2C_CR2_RD_WRN)
-#define  I2C_Generate_Start_Write         I2C_CR2_START
-
+#define  I2C_NO_STARTSTOP               (0x00000000U)
+#define  I2C_GENERATE_STOP              (uint32_t)(0x80000000U | I2C_CR2_STOP)
+#define  I2C_GENERATE_START_READ        (uint32_t)(0x80000000U | I2C_CR2_START | I2C_CR2_RD_WRN)
+#define  I2C_GENERATE_START_WRITE       (uint32_t)(0x80000000U | I2C_CR2_START)
                               
 #define IS_START_STOP_MODE(MODE)        (((MODE) == I2C_Generate_Stop) || \
                                          ((MODE) == I2C_Generate_Start_Read) || \
